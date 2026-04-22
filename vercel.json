@@ -1,0 +1,13 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/track",
+      "schedule": "* * * * *"
+    }
+  ],
+  "kv": {
+    "boatTracker": {
+      "lock": "boatTrackerLock"
+    }
+  }
+}

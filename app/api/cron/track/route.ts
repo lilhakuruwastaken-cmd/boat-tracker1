@@ -2,12 +2,6 @@ import { NextResponse } from 'next/server';
 import { getBoats, processBoatTracking } from '@/lib/db';
 
 export async function GET(req: Request) {
-  // Vercel Cron security check
-  const authHeader = req.headers.get('authorization');
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   const boats = await getBoats();
   
   for (const boat of boats) {
